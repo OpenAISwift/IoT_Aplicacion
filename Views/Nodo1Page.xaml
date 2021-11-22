@@ -1,0 +1,358 @@
+﻿<Page
+    x:Class="IoT_Aplicacion_UWP.Views.Nodo1Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IoT_Aplicacion_UWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Style x:Key="LD_DualAction" TargetType="ToggleButton">
+            <Setter Property="MinHeight" Value="50"/>
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="Margin" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid x:Name="Grid_Main">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Check_StatusOn" 
+                                                                           Storyboard.TargetProperty="ScaleX"
+                                                                           BeginTime="0"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Check_StatusOff" 
+                                                                           Storyboard.TargetProperty="ScaleX"
+                                                                           BeginTime="0:0:0.1"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Viewbox_StatusOff"
+                                                                           Storyboard.TargetProperty="Opacity"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Viewbox_StatusOn"
+                                                                           Storyboard.TargetProperty="Opacity"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Check_StatusOn" 
+                                                                           Storyboard.TargetProperty="ScaleX"
+                                                                           BeginTime="0"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Check_StatusOff" 
+                                                                           Storyboard.TargetProperty="ScaleX"
+                                                                           BeginTime="0:0:0.1"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Viewbox_StatusOff"
+                                                                           Storyboard.TargetProperty="Opacity"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Viewbox_StatusOn"
+                                                                           Storyboard.TargetProperty="Opacity"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Checked">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Check_StatusOff" 
+                                                                           Storyboard.TargetProperty="ScaleX"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Check_StatusOn" 
+                                                                           Storyboard.TargetProperty="ScaleX"
+                                                                           BeginTime="0:0:0.1"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Viewbox_StatusOff"
+                                                                           Storyboard.TargetProperty="Opacity"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Viewbox_StatusOn"
+                                                                           Storyboard.TargetProperty="Opacity"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="CheckedPointerOver">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Check_StatusOff" 
+                                                                           Storyboard.TargetProperty="ScaleX"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Check_StatusOn" 
+                                                                           Storyboard.TargetProperty="ScaleX"
+                                                                           BeginTime="0:0:0.1"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Viewbox_StatusOff"
+                                                                           Storyboard.TargetProperty="Opacity"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="0" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Viewbox_StatusOn"
+                                                                           Storyboard.TargetProperty="Opacity"
+                                                                           Duration="0:0:0.1">
+                                                <LinearDoubleKeyFrame Value="1" KeyTime="0:0:0.1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled" >
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Ellipse_StatusOff" 
+                                                                           Storyboard.TargetProperty="Opacity"
+                                                                           Duration="0:0:0.2">
+                                                <LinearDoubleKeyFrame Value="1" KeyTime="0" />
+                                                <LinearDoubleKeyFrame Value="0.7" KeyTime="0:0:0.2" />
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Ellipse x:Name="Ellipse_StatusOff" 
+                                 Width="60" Height="60"
+                                 Fill="White"
+                                 RenderTransformOrigin="0.5,0.5">
+                                <Ellipse.RenderTransform>
+                                    <ScaleTransform x:Name="Check_StatusOff" ScaleX="1" />
+                                </Ellipse.RenderTransform>
+                            </Ellipse>
+                            <Ellipse x:Name="Ellipse_StatusOn" 
+                                 Width="60" Height="60"
+                                 Fill="White"
+                                 RenderTransformOrigin="0.5,0.5">
+                                <Ellipse.RenderTransform>
+                                    <ScaleTransform x:Name="Check_StatusOn" ScaleX="0" />
+                                </Ellipse.RenderTransform>
+                            </Ellipse>
+                            <Ellipse x:Name="Ellipse_Over" 
+                                 Fill="Transparent"/>
+                            <Viewbox x:Name="Viewbox_StatusOff"
+                                 Width="30" Height="30"
+                                 Opacity="1">
+                                <PathIcon Data="M12,6A4,4 0 0,0 8,10V16H6V18H9V23H11V18H13V23H15V18H18V16H16V10A4,4 0 0,0 12,6Z"
+                                          Width="24" Height="24" 
+                                          Foreground="Black"/>
+                            </Viewbox>
+                            <Viewbox x:Name="Viewbox_StatusOn"
+                                 Width="30" Height="30"
+                                 Opacity="0">
+                                <PathIcon Data="M11,0V4H13V0H11M18.3,2.29L15.24,5.29L16.64,6.71L19.7,3.71L18.3,2.29M5.71,2.29L4.29,3.71L7.29,6.71L8.71,5.29L5.71,2.29M12,6A4,4 0 0,0 8,10V16H6V18H9V23H11V18H13V23H15V18H18V16H16V10A4,4 0 0,0 12,6M2,9V11H6V9H2M18,9V11H22V9H18Z"
+                                          Width="24" Height="24" 
+                                          Foreground="Black"/>
+                            </Viewbox>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Page.DataContext>
+        <Binding Path="N1" Source="{StaticResource Locator}" />
+    </Page.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="140" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="DATOS"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       FontSize="50"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="ACTUADORES"
+                       Grid.Row="0"
+                       Grid.Column="2"
+                       Grid.ColumnSpan="2"
+                       FontSize="50"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <StackPanel Grid.Row="1"
+                        Grid.Column="0">
+                <TextBlock Text="HUMEDAD:"
+                           HorizontalAlignment="Right"
+                           FontSize="30"/>
+                <TextBlock Text="TEMPERAURA:"
+                           HorizontalAlignment="Right"
+                           FontSize="30"/>
+                <TextBlock Text="TEMPERAURA 1:"
+                           HorizontalAlignment="Right"
+                           FontSize="30"/>
+                <TextBlock Text="TEMPERAURA 2:"
+                           HorizontalAlignment="Right"
+                           FontSize="30"/>
+                <TextBlock Text="LDR:"
+                           HorizontalAlignment="Right"
+                           FontSize="30"/>
+                <TextBlock Text="P ATMOSFERICA:"
+                           HorizontalAlignment="Right"
+                           FontSize="30"/>
+                <TextBlock Text="ALTITUD:"
+                           HorizontalAlignment="Right"
+                           FontSize="30"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1"
+                        Grid.Column="1">
+                <TextBlock Text="{Binding Humedad}"
+                           HorizontalAlignment="Center"
+                           FontSize="30"/>
+                <TextBlock Text="{Binding Temperatura}"
+                           HorizontalAlignment="Center"
+                           FontSize="30"/>
+                <TextBlock Text="{Binding Temperatura1}"
+                           HorizontalAlignment="Center"
+                           FontSize="30"/>
+                <TextBlock Text="{Binding Temperatura2}"
+                           HorizontalAlignment="Center"
+                           FontSize="30"/>
+                <TextBlock Text="{Binding LDR}"
+                           HorizontalAlignment="Center"
+                           FontSize="30"/>
+                <TextBlock Text="{Binding PAtmos}"
+                           HorizontalAlignment="Center"
+                           FontSize="30"/>
+                <TextBlock Text="{Binding Altitud}"
+                           HorizontalAlignment="Center"
+                           FontSize="30"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        Grid.Column="2"
+                        HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <TextBlock Text="LED 1"
+                               Margin="25 0"
+                               FontSize="30"
+                               VerticalAlignment="Center"
+                               />
+                    <ToggleButton Style="{StaticResource LD_DualAction}"
+                                  Command="{Binding RelayC_LED1}"
+                                  IsChecked="{Binding ChekedLed1,Mode=TwoWay}"
+                                  Margin="5"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <TextBlock Text="LED 2"
+                               Margin="25 0"
+                               FontSize="30"
+                               VerticalAlignment="Center"/>
+                    <ToggleButton Style="{StaticResource LD_DualAction}"
+                                  Command="{Binding RelayC_LED2}"
+                                  IsChecked="{Binding ChekedLed2,Mode=TwoWay}"
+                                  Margin="5"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <TextBlock Text="TODOS"
+                               Margin="15 0"
+                               FontSize="30"
+                               VerticalAlignment="Center"/>
+                    <ToggleButton Style="{StaticResource LD_DualAction}"
+                                  Command="{Binding RelayC_LEDAll}"
+                                  IsChecked="{Binding ChekedLedAll,Mode=TwoWay}"
+                                  Margin="5"/>
+                </StackPanel>
+                <TextBlock Text="INTERVALO DE TIEMPO"
+                       Grid.Row="0"
+                       Grid.Column="2"
+                       Grid.ColumnSpan="2"
+                       FontSize="50"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <ToggleButton Command="{Binding RelayC_Actualizar}"
+                                  Width="200"
+                                  Height="50"
+                                  Content="ACTUALIZAR"
+                                  FontSize="25"
+                                  Margin="5"/>
+                    <TextBox Text="{Binding Intervalo, Mode=TwoWay}" Width="200"
+                             Margin="15 0"
+                             FontSize="30"
+                             VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="45"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="CADENA PUERTO SERIE:" 
+                       Grid.Row="0"
+                       TextAlignment="Center"
+                       FontSize="30"
+                       TextLineBounds="Tight"
+                       Height="40"/>
+            <TextBlock Text="{Binding ReadString}" 
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       Width="Auto" 
+                       TextWrapping="Wrap" />
+            <TextBlock Text="TIEMPO RECIBIDO:"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="30"
+                       Margin="10"
+                       Grid.Row="1"
+                       TextLineBounds="Tight"/>
+            <TextBlock Text="{Binding TimerReadString}" 
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       TextLineBounds="Tight"
+                       Width="Auto" />
+        </Grid>
+    </Grid>
+</Page>
